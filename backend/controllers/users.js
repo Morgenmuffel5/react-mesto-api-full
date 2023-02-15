@@ -5,6 +5,7 @@ const User = require('../models/user');
 const BadRequest = require('../errors/badRequestError');
 const NotFound = require('../errors/notFoundError');
 const CheckUserError = require('../errors/checkObjectError');
+
 const { NODE_ENV, JWT_SECRET } = process.env;
 
 const getUserList = (req, res, next) => {
