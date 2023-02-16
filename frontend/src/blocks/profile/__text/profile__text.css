@@ -1,0 +1,11 @@
+.profile__text {
+    min-height: 73px;
+    box-sizing: border-box;
+}
+
+@media all and (max-width: 600px) {
+    .profile__text {
+        max-width: 282px;
+        padding-bottom: 36px;
+    }
+}

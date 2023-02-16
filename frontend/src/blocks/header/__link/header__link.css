@@ -1,0 +1,21 @@
+.header__link {
+    padding-bottom: 41px;
+    padding-top: 45px;
+    text-align: right;
+    color: #ffffff;
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2;
+
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .header__link {
+        margin-bottom: 33px;
+        margin-right: 30px;
+        font-size: 14px;
+    }
+}

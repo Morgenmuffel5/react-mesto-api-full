@@ -1,0 +1,9 @@
+.login__button-cont {
+    margin-top: 216px;
+    display: flex;
+    justify-content: center;
+}
+
+.login__button-cont:hover {
+    opacity: 0.85;
+}

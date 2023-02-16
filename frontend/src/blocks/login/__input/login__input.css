@@ -1,0 +1,29 @@
+.login__input {
+    border: none;
+    margin: 0;
+    padding: 0 0 13px;
+    width: 358px;
+    color: #ffffff;
+    background-color: #000000;
+    border-bottom: 2px solid #cccccc;
+    max-width: 358px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.login__input:first-child {
+    margin-bottom: 30px;
+}
+
+.login__input:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .login__input {
+        max-width: 260px;
+    }
+}

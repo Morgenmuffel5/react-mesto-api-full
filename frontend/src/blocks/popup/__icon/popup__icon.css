@@ -1,0 +1,13 @@
+.popup__icon {
+    margin: 60px auto 0;
+    padding: 0;
+    background-image: url("../../../images/login_forbid.png");
+    width: 120px;
+    height: 120px;
+}
+
+@media screen and (max-width: 1024px) {
+    .popup__icon {
+        margin-top: 50px;
+    }
+}

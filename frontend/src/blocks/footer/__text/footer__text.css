@@ -1,0 +1,13 @@
+.footer__text {
+    font-size: 18px;
+    line-height: 1.22;
+    color: rgba(84, 84, 84, 1);
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@media all and (max-width: 600px) {
+    .footer__text{
+        font-size: 14px;
+    }
+}

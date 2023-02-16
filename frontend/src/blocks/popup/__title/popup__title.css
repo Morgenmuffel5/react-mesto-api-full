@@ -1,0 +1,18 @@
+.popup__title {
+    color: rgba(0, 0, 0, 1);
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1.22;
+    margin: 0 auto;
+    padding: 34px 0 54px 0;
+    box-sizing: border-box;
+    min-width: 100%;
+}
+
+@media all and (max-width: 600px) {
+    .popup__title  {
+        font-size: 18px;
+        padding-bottom: 75px;
+        padding-top: 25px; /*замечание 3я иттерация - исправлено*/
+    }
+}

@@ -1,0 +1,31 @@
+.popup__button {
+    width: 100%;
+    min-height: 50px;
+    margin: 0 auto 37px auto;
+    background-color: rgba(0, 0, 0, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    color: rgba(255, 255, 255, 1);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+    outline: none;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.popup__button:hover {
+    opacity: 0.8;
+}
+
+@media all and (max-width: 600px) {
+    .popup__button {
+        font-size: 14px;
+        min-height: 46px;
+        margin-bottom:  25px; /*замечание 3я иттерация - исправлено*/
+    }
+ }

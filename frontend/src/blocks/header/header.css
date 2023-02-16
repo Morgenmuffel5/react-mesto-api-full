@@ -1,0 +1,15 @@
+.header {
+    margin: 0 auto 40px auto;
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+    width: 100%;
+    background-color: #000000;
+    box-sizing: border-box;
+    display: flex;
+}
+
+@media all and (max-width: 520px) {
+    .header {
+        margin: 28px auto 42px auto;
+    }
+    
+}

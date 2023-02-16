@@ -1,0 +1,24 @@
+.login__login-link {
+    border-radius: 2px;
+    padding: 0;
+    width: 358px;
+    height: 50px;
+    text-align: center;
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2;
+    border: none;
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .login__login-link {
+        font-size: 16px;
+        line-height: 19px;
+        max-width: 260px;
+        min-height: 46px;
+    }
+}

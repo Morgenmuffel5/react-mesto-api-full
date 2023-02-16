@@ -1,0 +1,11 @@
+.cards {
+    box-sizing: border-box;
+    margin-bottom: 66px;
+}
+
+@media all and (max-width: 764px) {
+    .cards {
+        max-width: 95%;
+        margin: 0 19px 48px 19px;
+    }
+}

@@ -1,0 +1,20 @@
+.profile__hover {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    background-image: url('../../../images/avatar_hover.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.3;
+    transition: .5s;
+    z-index: -1;
+}
+
+.profile__avatar:hover > .profile__hover {
+z-index: 2;
+opacity: .8;
+}

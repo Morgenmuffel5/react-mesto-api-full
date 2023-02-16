@@ -1,0 +1,19 @@
+.profile__info {
+    min-width: 486px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@media all and (max-width: 1024px) {
+    .profile__info {
+        min-width: 400px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .profile__info {
+       flex-direction: column;
+        min-width: 282px;
+    }
+}
