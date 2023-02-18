@@ -1,51 +1,65 @@
-import React from "react";
-import {Link} from 'react-router-dom'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-function Register (props) {
+function Register({ onSubmit }) {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData({
+      ...data,
+      [name]: value,
+    });
+  };
 
-    const [formInputs, setFormInputs] = React.useState({
-        email: '',
-        password: '',
-    })
-
-
-    function handleUpdate (e) {
-        const { name, value } = e.target
-        setFormInputs((prevState) => ({ ...prevState, [name]: value }))
-    }
-
-    function createNewAccount(e) {
-        e.preventDefault();
-        props.onRegister(formInputs);
-    }
-
-
-    React.useEffect(() => {
-        props.onUpdateHeader(true);
-    }, []);
-
-    return (
-        <>
-            <div className="login">
-                <p className="login__title">
-                    Регистрация
-                </p>
-                <form className="login__form" onSubmit={createNewAccount}>
-                    <input placeholder='Email' required id="input-email" className='login__input' name="email" type="text" value={formInputs.email ||''} onChange={handleUpdate} />
-                    <input placeholder='Пароль' required id="input-password" name="password" className='login__input' type="password" value={formInputs.password || ''} onChange={handleUpdate} />
-                    <div className="login__button-cont">
-                        <button type="submit" className="login__button">Зарегистрироваться</button>
-                    </div>
-                </form>
-                <div className="login__cont">
-                    <Link to="sign-in" className="login__login-link">
-                        Уже зарегистрированы? Войти
-                    </Link>
-                </div>
-            </div>
-        </>
-    )
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(data);
+  };
+  return (
+    <div className="auth">
+      <section className="auth__form">
+        <h1 className="auth__title">Регистрация</h1>
+        <form className="auth__form" onSubmit={handleSubmit}>
+          <fieldset className="auth__info">
+            <input
+              value={data.email}
+              onChange={handleChange}
+              id="email-input"
+              className="auth__input auth__input_type_email"
+              type="text"
+              placeholder="Email"
+              name="email"
+              required
+            />
+            <input
+              value={data.password}
+              onChange={handleChange}
+              id="password-input"
+              className="auth__input auth__input_type_password"
+              type="password"
+              placeholder="Пароль"
+              name="password"
+              minLength={4}
+              required
+            />
+          </fieldset>
+          <button
+            className="auth__submit-button auth__submit-button_type_submit"
+            type="submit"
+          >
+            Зарегистрироваться
+          </button>
+          <p className="auth__text auth__text-registration">
+            Уже зарегистрированы? <Link to={"sign-in"}>Войти</Link>
+          </p>
+        </form>
+      </section>
+    </div>
+  );
 }
 
 export default Register;

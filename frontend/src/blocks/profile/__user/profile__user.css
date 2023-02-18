@@ -1,0 +1,26 @@
+.profile__user {
+    display: flex;
+    position: relative;
+    cursor: pointer;
+    background-color: #000000;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.profile__user::before {
+    background-image: url(../../../images/edit.svg);
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.3s linear 0.1s;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.profile__user:hover::before {
+    opacity: 0.8;
+ }

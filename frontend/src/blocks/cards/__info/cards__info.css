@@ -1,8 +1,0 @@
-.cards__info {
-    display: flex;
-    min-width: calc(100% - 36px);
-    box-sizing: border-box;
-    padding: 25px 20px 31px 17px;
-    justify-content: space-between;
-    align-items: baseline;
-}

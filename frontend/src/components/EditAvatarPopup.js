@@ -1,43 +1,57 @@
+import React, { useState, useRef } from "react";
 import PopupWithForm from "./PopupWithForm";
-import React from "react";
-import {CurrentUserContext} from "../contexts/CurrentUserContext";
-import {api} from "../utils/Api";
 
+function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
+  const [valid, setValid] = useState(false);
+  const [errorMessageAvatar, setErrorMessageAvatar] = useState("");
+  const avatarRef = useRef();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onUpdateAvatar({
+      avatar: avatarRef.current.value,
+    });
+    avatarRef.current.value = "";
+    setValid(false);
+  };
 
-function EditAvatarPopup(props) {
-
-
-    const avatarRef = React.useRef('');
-
-    React.useEffect(() => {
-        avatarRef.current.value = '';
-    }, [props.isOpen]);
-
-    function handleSubmit(e) {
-        e.preventDefault();
-        props.onUpdateAvatar({
-            avatar: avatarRef.current.value
-        });
+  const handleInput = (e) => {
+    if (!e.target.validity.valid || avatarRef.current.value === "") {
+      setValid(false);
+      setErrorMessageAvatar(e.target.validationMessage);
+    } else {
+      setErrorMessageAvatar("");
     }
+    if (e.target.closest("form").checkValidity()) {
+      setValid(true);
+    }
+  };
 
-    return (
-        <PopupWithForm name='avatar' title='Обновить аватар'
-                       children={
-                           <>
-                               <label className="popup__fieldset">
-                                   <input ref={avatarRef} id="popup__input-avatar" type="url"
-                                          className="popup__input popup__input_value_avatar"
-                                          name="avatar" placeholder="Ссылка" required /*noValidate*/ />
-
-                                   <span className="popup__error popup__input-avatar-error"></span>
-                               </label>
-                           </>
-                       }
-                       isOpen={props.isOpen}
-                       onClose={props.onClose}
-                       onSubmit={handleSubmit}
-        />
-    )
+  return (
+    <PopupWithForm
+      isOpen={isOpen}
+      onClose={onClose}
+      onSubmit={handleSubmit}
+      valid={valid}
+      title="Обновить аватар"
+      name="avatar"
+      textButton="Сохранить"
+    >
+      <input
+        className="popup__input popup__input_type_link"
+        id="lavatar"
+        name="avatar"
+        type="url"
+        minLength="2"
+        required
+        placeholder="Ссылка на аватар"
+        ref={avatarRef}
+        onInput={(e) => handleInput(e)}
+      />
+      <div id="lavatar-error" className="popup__input-error">
+        <span className="popup__error-visible">{errorMessageAvatar}</span>
+      </div>
+    </PopupWithForm>
+  );
 }
 
-export default EditAvatarPopup
+export default EditAvatarPopup;

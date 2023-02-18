@@ -1,52 +1,59 @@
-import React, {useState} from "react";
-import Header from "./Header";
+import React, { useState } from "react";
 
-function Login(props) {
+function Login({ onSubmit }) {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-    function handleEmailUpdate(e) {
-        setEmail(e.target.value)
-    }
-
-    function handlePasswordUpdate(e) {
-        setPassword(e.target.value)
-    }
-
-    function submitLogin(e) {
-        e.preventDefault();
-        if (!email || !password) {
-            return;
-        }
-        props.onLogin({
-            password: password,
-            email: email
-        });
-    }
-
-    React.useEffect(() => {
-        props.onUpdateHeader(false);
-    }, []);
-
-    return (
-        <>
-            <div className="login">
-                <p className="login__title">
-                    Вход
-                </p>
-                <form className="login__form" onSubmit={submitLogin}>
-                    <input placeholder='Email' required id="input-email" className='login__input' name="email"
-                           type="text" value={email || ''} onChange={handleEmailUpdate}/>
-                    <input placeholder='Пароль' required id="input-password" name="password" className='login__input'
-                           type="password" value={password || ''} onChange={handlePasswordUpdate}/>
-                    <div className="login__button-cont">
-                        <button type="submit" className="login__button">Войти</button>
-                    </div>
-                </form>
-            </div>
-        </>
-    )
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData({
+      ...data,
+      [name]: value,
+    });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(data);
+  };
+  return (
+    <div className="auth">
+      <section className="auth__form">
+        <h1 className="auth__title">Вход</h1>
+        <form className="auth__form" onSubmit={handleSubmit}>
+          <fieldset className="auth__info">
+            <input
+              value={data.email}
+              onChange={handleChange}
+              id="email-input"
+              className="auth__input auth__input_type_email"
+              type="text"
+              placeholder="Email"
+              name="email"
+              required
+            />
+            <input
+              value={data.password}
+              onChange={handleChange}
+              id="password-input"
+              className="auth__input auth__input_type_password"
+              type="password"
+              placeholder="Пароль"
+              name="password"
+              required
+            />
+          </fieldset>
+          <button
+            className="auth__submit-button auth__submit-button_type_submit"
+            type="submit"
+          >
+            Войти
+          </button>
+        </form>
+      </section>
+    </div>
+  );
 }
 
 export default Login;

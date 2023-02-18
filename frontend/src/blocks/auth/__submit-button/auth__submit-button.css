@@ -1,0 +1,20 @@
+.auth__submit-button {
+  font-family: "Inter", sans-serif;
+  width: 358px;
+  height: 50px;
+  margin-top: 216px;
+  background: #ffffff;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out 0.1s;
+}
+
+.auth__submit-button:hover {
+  opacity: 0.85;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .auth__submit-button {
+    width: 260px;
+  }
+}
