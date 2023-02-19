@@ -115,7 +115,7 @@ const updateUserInfo = (req, res, next) => {
     })
 }
 
-  const changeAvatar = (req, res, next) => {
+const changeAvatar = (req, res, next) => {
   const { avatar } = req.body;
 
   User.findByIdAndUpdate(

@@ -1,6 +1,4 @@
 const Card = require('../models/card');
-const Constants = require('../utils/constants');
-const NotFoundError = require('../middlewares/errors/not-found-err');
 const BadRequest = require('../errors/badRequestError');
 const NotFound = require('../errors/notFoundError');
 const NotOwner = require('../errors/notOwenError');

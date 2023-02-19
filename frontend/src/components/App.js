@@ -61,7 +61,7 @@ function App() {
           });
     }
   }, [loggedIn]);
-  
+
 
   const handleLogin = (data) => {
     auth.logInCurrentUser(data)

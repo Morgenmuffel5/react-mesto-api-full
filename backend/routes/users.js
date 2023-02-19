@@ -14,7 +14,9 @@ userRouter.get('/me', getCurrentUser);
 userRouter.get('/', getUserList);
 
 // проверка данных перед отправкой
-userRouter.get('/:userId', celebrate({
+userRouter.get(
+  '/:userId',
+  celebrate({
     params: Joi.object().keys({
       userId: Joi.string().length(24).hex().required(),
     }),
@@ -29,7 +31,7 @@ userRouter.patch('/me', celebrate({
   }),
 }), updateUserInfo);
 
-userRouter.patch('/me/avatar',  celebrate({
+userRouter.patch('/me/avatar', celebrate({
   body: Joi.object().keys({
     avatar: Joi.string().pattern(linkCheck),
   }),
