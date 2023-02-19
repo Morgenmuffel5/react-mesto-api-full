@@ -40,7 +40,7 @@ function App() {
         .then((res) => {
           if (res) {
             setEmail(res.data.email);
-            handleLogin();
+            setLoggedIn(true);
           }
         })
         .catch((err) => console.log(err))
