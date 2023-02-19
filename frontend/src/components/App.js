@@ -48,9 +48,6 @@ function App() {
     }
   }, [loggedIn, history, email]);
 
- /* function handleLogin() {
-    setLoggedIn(true);
-  }*/
 
   React.useEffect(() => {
     if (loggedIn) {
@@ -64,23 +61,7 @@ function App() {
           });
     }
   }, [loggedIn]);
-
-
-  /*useEffect(() => {
-    const closeEscape = (evt) => {
-      evt.key === 'Escape' && closeAllPopups();
-    };
-    if (
-      isAddPlacePopupOpen ||
-      isEditAvatarPopupOpen ||
-      isEditProfilePopupOpen ||
-      selectedCard ||
-      card
-    ) {
-      document.addEventListener('keydown', closeEscape);
-    }
-    return () => document.removeEventListener('keydown', closeEscape);
-  });*/
+  
 
   const handleLogin = (data) => {
     auth.logInCurrentUser(data)

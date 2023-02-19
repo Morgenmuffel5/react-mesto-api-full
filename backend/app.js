@@ -1,13 +1,14 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const { celebrate, Joi, errors } = require('celebrate');
 const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
-const cors = require('./middlewares/cors');
-const { login, createNewUser} = require('./controllers/users');
+/* const cors = require('./middlewares/cors'); */
+const { login, createNewUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const linkCheck = require('./constants/constants');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -19,9 +20,25 @@ const app = express();
 mongoose.set('strictQuery', true);
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
-app.use(express.json());
+/* const enableDomains = {
+  origin: [
+    'https://morgenmuffel.study.nomoredomains.work',
+    'http://morgenmuffel.study.nomoredomains.work',
+    'http://localhost:3000',
+    'https://localhost:3000',
+  ],
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  allowedHeaders: ['Content-Type', 'origin', 'Authorization'],
+  credentials: true,
+};
 
-app.use(cors);
+app.use(cors(enableDomains)); */
+app.use(cors());
+
+app.use(express.json());
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
