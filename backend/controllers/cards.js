@@ -30,7 +30,7 @@ const deleteCard = async (req, res, next) => {
     const cardId = await Card.findOne({ _id: req.params.cardId });
     const cardOwner = req.user._id;
     if (cardId === null) {
-      next(new NotFoundError(Constants.NOT_FOUND_CARD_WITH_ID));
+      next(new NotFound('Переданы некорректные данные для создании карточки'));
     } else if (cardId.owner.valueOf() === cardOwner) {
       const card = await Card.findByIdAndRemove(req.params.cardId);
       res.send(card);

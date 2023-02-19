@@ -87,18 +87,18 @@ const createNewUser = (req, res, next) => {
 };
 
 const updateUserInfo = (req, res, next) => {
-  const {name, about} = req.body;
+  const { name, about } = req.body;
   User.findByIdAndUpdate(
     req.user._id,
-    {name, about},
+    { name, about },
     {
       new: true,
-      runValidators: true
+      runValidators: true,
     },
   )
     .then((user) => {
       if (user) {
-        res.send({data: user});
+        res.send({ data: user });
       } else {
         next(new NotFound('Пользователь с указанным _id не найден'));
       }
@@ -112,8 +112,8 @@ const updateUserInfo = (req, res, next) => {
       } else {
         next(err);
       }
-    })
-}
+    });
+};
 
 const changeAvatar = (req, res, next) => {
   const { avatar } = req.body;
@@ -121,8 +121,10 @@ const changeAvatar = (req, res, next) => {
   User.findByIdAndUpdate(
     req.user._id,
     { avatar },
-    { new: true,
-      runValidators: true },
+    {
+      new: true,
+      runValidators: true,
+    },
   )
     .then((user) => {
       if (user) {
