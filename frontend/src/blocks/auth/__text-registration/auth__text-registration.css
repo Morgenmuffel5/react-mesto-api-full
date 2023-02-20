@@ -1,0 +1,23 @@
+.auth__text-registration {
+  border: none;
+  text-align: center;
+  color: #fff;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  transition: opacity 0.3s ease-in-out 0.1s;
+}
+
+.auth__text-registration:first-of-type {
+  margin: 15px 0 0;
+}
+
+.auth__text-registration a {
+  outline: none;
+  color: #fff;
+  text-decoration: none;
+}
+
+.auth__text-registration a:hover {
+  opacity: 0.6;
+}

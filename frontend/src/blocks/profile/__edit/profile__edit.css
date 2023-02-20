@@ -1,0 +1,15 @@
+.profile__edit {
+    min-width: 120px;
+    width: 26px;
+    height: 26px;
+    background-size: cover;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 40%;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .profile__edit {
+        margin: 0 auto;
+    }
+}
